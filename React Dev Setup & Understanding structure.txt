@@ -1,0 +1,47 @@
+React Dev Setup & Understanding the structure: 
+
+
+-------------- React Dev Setup --------------
+
+-> Firstly We need to have node installed in our system
+
+-> There are two ways to create a React APP
+	
+	1] Create React App (official)
+	2] Vite (popular)
+
+-> We are using the vite to setup our React 
+	
+	1] Open the project folder in vscode and than open the terminal 
+	2] In the terminal type - npm create vite@latest
+	3] Ok to proceed - y ? : y
+	4] Give a project name 
+	5] Select a framework : select React 
+	6] Select a variant : We can choose whatever we need
+	7] Than follow the screen instructions
+
+
+
+-------------- Understanding the structure --------------
+
+
+-> Project structure (key files and modules)
+	
+- node_modules : This is very core installation is done we should not touch this file
+
+- public : This is very public assets of our website is store like video, imgs, etc 
+
+- src : In this we have our source code of our application or simple terms where we write 
+the code 
+
+- .gitignore : This helps us to push our project safely on GitHub
+
+- index.html  :	Our html file which has entry point to our application
+
+- package.json : In this file we have information about the project
+
+- vite.config.ts : Don't need to touch this file as well 
+
+
+
+

@@ -1,0 +1,133 @@
+--------------------------------------------------------------------------- WHAT IS REACT ? ---------------------------------------------------------------------------
+
+- React is a JavaScript library used to build user interfaces, especially for single-page applications (SPAs).
+
+- Created and maintained by Meta (Facebook).
+
+- It helps developers build fast and interactive UIs with less code.
+
+- React uses components, which are reusable, independent blocks of code that return JSX (JavaScript XML) — not plain HTML.
+
+- React is declarative, which means you describe what the UI should look like, and React handles the updates efficiently when data changes.
+
+
+
+--------------------------------------------------------------------------- COMPONENTS --------------------------------------------------------------------------------
+
+-> 🔨 Creating Our First Component (Header)
+
+- Inside the src/ folder of your React project, create a new file named Header.jsx.
+
+- In React, function component names should follow PascalCase — e.g., Header, not header.
+
+- React components are only capable of returing a single element but we can have child element inside it 
+
+- Now the example is here we are creating a component using function 
+
+	function Header(){
+		
+	      return( 
+			<header>
+				<h1> My website </h1>
+			</header
+		);
+	}
+
+	export default Header; // we need to write this when we create a component so we can import it in our App.jsx or any other file
+
+
+- The return statement includes something that looks like HTML, but it's actually JSX — a syntax extension that allows writing HTML-like code inside JavaScript/TypeScript.
+
+- JSX is converted into JavaScript behind the scenes (e.g., React.createElement) before rendering.
+
+- 🔍 Try converting JSX to JS here: 🔗 https://babeljs.io/repl  // Paste the above code and see how it turns into plain JavaScript!
+
+- Than call this Header component inside our App.jsx like this: 
+
+	import Header from "./Header.jsx";
+
+	function App() {
+  		return <Header></Header>; // we can also write in short hand <Header/>
+	}
+
+	export default App;
+
+
+- Fragments <> </> empty sets like this are know as fragments we use this to return multiple elemets cause as we know normally can only return a single element.
+
+ Example: 
+	
+	return (
+		 <>
+      		    <Header></Header>
+      		    <Footer />
+    		 </>
+	)
+
+
+- We can use JavaScript inside our return statment by using curly brace, However outside we don't 
+	
+	return (
+    	<footer>
+      		<p>&copy; {new Date().getFullYear()} Your website name</p>
+    	</footer>
+  	);
+
+
+--------------------------------------------------------------------------- CSS -------------------------------------------------------------------------------------
+
+- We cannot define class directly like this class="" because, class is a keyword in JSX so we need to write it like this className=""
+
+- To apply CSS we can go to index.css 
+
+- We have three ways to style our REACT components with CSS
+
+1] EXTERNAL i.e index.css
+
+Pros: Easy to manage global styles and cached by browsers for better performance.
+Cons: Styles are global by default, which can cause conflicts in large apps.
+	
+
+2] MODULES - Done a example of Button in my-react-app 
+
+Pros: Automatically scopes styles locally to components, avoiding naming conflicts.
+Cons: Requires additional setup and can complicate global styling.
+
+
+3] INLINE - Done a example of Button in my-react-app
+
+Pros: Useful for dynamic styling directly in components without conflicts.
+Cons: Limited CSS features and can make code harder to read and maintain.
+
+
+--------------------------------------------------------------------------- PROPS -------------------------------------------------------------------------------------
+
+- What are Props? with a example
+
+Props in React are passed as an object where each propName=propValue becomes a key-value pair. So, country="JAPAN" becomes { country: "JAPAN" }, and we access it using props.country, which gives "JAPAN".
+
+
+- How to Use Props:
+
+1] Pass props like HTML attributes to a component: 
+	
+	<Welcome name="Raj" />
+
+2] Access props inside the component using props object or by destructuring:
+
+	function Welcome(props) {
+  		return <h1>Hello, {props.name}</h1>;
+	}
+
+- We can name props anything we like when passing them — such as myCustomProp, userInfo, whateverNameWeWant, etc.
+
+- For a proper example on props please check the 'my travel journal' project
+
+
+3] We want to pass other data-types as well in our prop like boolean or array or number we can write it like this
+
+	<Welcome 
+
+		phone={8272938495} 
+		isAlive={true}
+	/>
