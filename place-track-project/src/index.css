@@ -1,0 +1,151 @@
+:root {
+  font-family: monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+
+.header {
+  text-align: center;
+  padding: 24px 0 16px 0;
+  background: linear-gradient(90deg, #00adb5 0%, #393e46 100%);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enter-place {
+  background-color: #242424;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.enter-place label {
+  font-size: 17px;
+}
+
+.enter-place input {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+form .submit {
+  background-color: #00adb5;
+}
+
+form .cancel {
+  background-color: #ed3500;
+}
+
+.enter-place button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 7px;
+}
+
+.add-btn {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px;
+}
+
+.add-btn button {
+  background-color: #00adb5;
+  font-family: monospace;
+  transition: 0.2s ease;
+}
+
+.add-btn button:hover {
+  background-color: #019ca1;
+  color: #fff;
+}
+
+.add-place {
+  padding: 13px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.places-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+  justify-content: center;
+}
+
+.place-card {
+  width: 250px;
+  border-radius: 20px;
+  background-color: #393e46;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.place-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.place-card h1 {
+  font-size: 20px;
+  margin: 0;
+  color: #fffefe;
+}
+
+.place-card h2 {
+  font-size: 16px;
+  margin: 6px 0 0 0;
+  color: #ffffff;
+}
+
+.place-card img {
+  width: 250px;
+  height: 300px;
+  object-fit: cover;
+  margin: 15px 0px;
+  border-radius: 20px;
+}
+
+.place-card button {
+  background-color: #ed3500;
+  border: none;
+  border-radius: 15px;
+  padding: 12px 17px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  font-family: monospace;
+}
+
+.place-card button:hover {
+  background-color: #b82600;
+}
+
+

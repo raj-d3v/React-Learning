@@ -100,34 +100,55 @@ Pros: Useful for dynamic styling directly in components without conflicts.
 Cons: Limited CSS features and can make code harder to read and maintain.
 
 
---------------------------------------------------------------------------- PROPS -------------------------------------------------------------------------------------
+--------------------------------------------------------------------------- FORMS -------------------------------------------------------------------------------------
 
-- What are Props? with a example
+- In React, forms work similarly to HTML and JavaScript, but starting from React 19, there's a new advantage: we can directly pass a function to the form’s action attribute to handle submissions.
 
-Props in React are passed as an object where each propName=propValue becomes a key-value pair. So, country="JAPAN" becomes { country: "JAPAN" }, and we access it using props.country, which gives "JAPAN".
+- React automatically passes the FormData object as the first argument to the function you pass in the action attribute.
+
+- The name of this parameter can be anything — it's not required to be formData, as long as it's the first argument in the function.
+
+- With this new approach, we don’t need to manually pass or use event inside our form handling function. React internally handles everything like preventDefault(), currentTarget(), and even supports reset() functionality if needed.
 
 
-- How to Use Props:
-
-1] Pass props like HTML attributes to a component: 
-	
-	<Welcome name="Raj" />
-
-2] Access props inside the component using props object or by destructuring:
-
-	function Welcome(props) {
-  		return <h1>Hello, {props.name}</h1>;
+- Example 
+		// We can name the parameter anything but its should be passed first
+				
+	function addIngredients(formData) {
+	  const newIngredient = formData.get("ingredient");
+  	  console.log(newIngredient)
 	}
 
-- We can name props anything we like when passing them — such as myCustomProp, userInfo, whateverNameWeWant, etc.
+	<form action={addIngredients} className="ingredients-form">
+  		<input name="ingredient" />
+  		<button type="submit">Add</button>
+	</form>
 
-- For a proper example on props please check the 'my travel journal' project
+- When getting the data from the formData we can also use .getAll() *for example we want all the items which are checked from the checkbox so .get() will only give us one but .getAll() will give us all checked items 
 
 
-3] We want to pass other data-types as well in our prop like boolean or array or number we can write it like this
+- Now we have a shorthand or a shortcut also that we can use. if we have alot of fileds in the form than we need to write it like this 
 
-	<Welcome 
+example :
+	
+	function signUp(formData) {
+   	 	const email = formData.get("email")
+   	 	const password = formData.get("password")
+   	 	const employmentStatus = formData.get("employmentStatus")
+    		const dietaryRestrictions = formData.getAll("dietaryRestrictions")
+   	 	const favColor = formData.get("favColor")
+   	 	console.log(favColor)
+  	}
 
-		phone={8272938495} 
-		isAlive={true}
-	/>
+- But we can write it like this instead by using the built-in javascript method 'Object.fromEntries()'
+	
+	  function signUp(formData) {
+    		const data = Object.fromEntries(formData)
+    		const dietaryRestrictions = formData.getAll("dietaryRestrictions")
+    		const allData = { ...data, dietaryRestrictions }
+    		console.log(allData)
+  	  }
+
+- In this we write Object.formEntries() and the data passed inside which returns us with a single 'object' of all data submitted in the form  
+	
+- In the example we are have dietaryRestrictions seperately because when we use Object.fromEntries() it doesn't give us all the value which are checked in the checkbox but only gives one thats why we need to access it seperately and than use the spread '...' to concat both old and new to replace the dietaryRestrictions value from old to new 

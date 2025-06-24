@@ -1,0 +1,224 @@
+:root {
+  --background-color: #141413;
+  --text-color: #555555;
+  --secondary-color: #7c7c7c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+}
+
+/* -------------------------------------- HEADER COMPONENT -----------------------------------  */
+
+.nav-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+}
+
+.nav-bar img {
+  width: 50px;
+  height: 55px;
+  margin-right: 10px;
+}
+
+.nav-bar p {
+  font-size: 2rem;
+  color: var(--text-color);
+}
+
+/* -------------------------------------- BODY COMPONENT -----------------------------------  */
+
+.landing-content {
+  padding: 150px;
+  position: relative;
+  color: var(--text-color);
+}
+
+.landing-content::before {
+  content: "";
+  background: url(./assets/food-doodle.jpg) center / cover no-repeat;
+  opacity: 0.05;
+  position: absolute;
+  inset: 0;
+}
+
+.landing-content p {
+  font-size: 28px;
+  text-align: center;
+  line-height: 50px;
+  margin-bottom: 50px;
+}
+
+.scroll-down {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--secondary-color);
+  font-size: 1.3rem;
+  animation: fadeIn 2s ease-in;
+}
+
+.scroll-down .arrow {
+  font-size: 2rem;
+  margin-top: 0.5rem;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-content {
+  padding: 60px 0px 20px 0px;
+  border-top: 2px groove var(--secondary-color);
+}
+
+.ingredients-form {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  margin-bottom: 20px;
+}
+
+.ingredients-input {
+  font-size: 15px;
+  padding: 10px 200px 10px 10px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 7px;
+}
+
+.ingredients-submit {
+  background-color: var(--background-color);
+  color: white;
+  padding: 12px 35px 10px 35px;
+  border-radius: 7px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.ingredients-submit:hover {
+  background-color: #4e4e49;
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+
+.ingredients-submit::before {
+  content: "+";
+  margin-right: 7px;
+}
+
+.display-ingredients {
+  text-align: center;
+  font-size: 25px;
+  margin-top: 0px;
+}
+
+.get-recipe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0efeb;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 30px auto; /* center horizontally */
+  max-width: 600px;
+  text-align: center;
+}
+
+.get-recipe div h3 {
+  font-size: 25px;
+  margin: 0;
+}
+
+.get-recipe div p {
+  margin-top: 0.5rem;
+  font-size: 15px;
+  color: #444;
+}
+
+.get-recipe button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: var(--background-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.get-recipe button:hover {
+  background-color: #4e4e49;
+}
+
+/*=======================================================================*/
+.recipe-output {
+  background-color: #f0efeb;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 3rem auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.recipe-output h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #2c2c2c;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.recipe-output h3,
+.recipe-output h4 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  color: #444;
+}
+
+.recipe-output ul,
+.recipe-output ol {
+  margin-left: 1.5rem;
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.recipe-output li {
+  margin-bottom: 0.5rem;
+}
+
+.recipe-output p {
+  margin: 1rem 0;
+}
