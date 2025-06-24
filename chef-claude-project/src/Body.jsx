@@ -6,7 +6,6 @@ function Body() {
   const [ingredients, setIngredients] = useState([]);
   const [recipe, setRecipe] = useState("");
   const [recipeShown, setRecipeShown] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const ingredientElements = ingredients.map((ingredient) => (
     <p key={ingredient}>{ingredient}</p>
@@ -20,8 +19,6 @@ function Body() {
   }
 
   async function handleGetRecipe() {
-    setLoading(true);
-
     const recipeText = await getRecipeFromMistral(ingredients);
     if (recipeText) {
       setRecipe(recipeText);
@@ -70,9 +67,7 @@ function Body() {
                 <h3>Ready for a recipe?</h3>
                 <p>Generate a recipe from your list of ingredients.</p>
               </div>
-              <button onClick={handleGetRecipe}>
-                {loading ? "Cooking..." : "Get a recipe"}
-              </button>
+              <button onClick={handleGetRecipe}>Get a recipe</button>
             </div>
           )}
         </section>
