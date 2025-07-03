@@ -54,7 +54,7 @@ function EmployeeTable({ employees, onDelete }) {
   return (
     <>
       <Table>
-        <TableHeader>
+        <TableHeader className="bg-[#fbfafa]">
           <TableRow>
             <TableHead>
               <input
@@ -71,7 +71,6 @@ function EmployeeTable({ employees, onDelete }) {
             <TableHead>Action</TableHead>
           </TableRow>
         </TableHeader>
-
         <TableBody>
           {employees.map((emp) => (
             <TableRow key={emp.id}>
@@ -82,7 +81,6 @@ function EmployeeTable({ employees, onDelete }) {
                   onChange={() => handleSelectOne(emp.id)}
                 />
               </TableCell>
-
               <TableCell>
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 bg-[#E0F2FE] text-[#0369A1] rounded-full flex items-center justify-center font-semibold text-sm">
@@ -96,11 +94,9 @@ function EmployeeTable({ employees, onDelete }) {
                   </div>
                 </div>
               </TableCell>
-
               <TableCell className="text-sm text-[#636363]">
                 #23454GH6JYT6
               </TableCell>
-
               <TableCell className="text-sm">{emp.role}</TableCell>
 
               <TableCell>
@@ -114,7 +110,6 @@ function EmployeeTable({ employees, onDelete }) {
                   {emp.id % 2 === 0 ? "Active" : "Inactive"}
                 </span>
               </TableCell>
-
               <TableCell className="space-x-1">
                 {emp.role.toLowerCase() === "developer" && (
                   <>
@@ -154,7 +149,6 @@ function EmployeeTable({ employees, onDelete }) {
                   +{Math.floor(Math.random() * 6) + 1}
                 </span>
               </TableCell>
-
               <TableCell>
                 <Trash2
                   className="w-4 h-4 text-red-500 cursor-pointer hover:scale-110 transition"

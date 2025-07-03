@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { PlusCircleIcon } from "lucide-react";
 
 function AddEmployeeDialog({ onAdd }) {
   const [name, setName] = useState("");
@@ -28,7 +29,10 @@ function AddEmployeeDialog({ onAdd }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="cursor-pointer">Add Employee</Button>
+        <Button className="cursor-pointer">
+          <PlusCircleIcon />
+          Add Employee
+        </Button>
       </DialogTrigger>
 
       <DialogContent className="sm:max-w-md">
@@ -64,9 +68,12 @@ function AddEmployeeDialog({ onAdd }) {
               Cancel
             </Button>
           </DialogClose>
-          <Button onClick={handleAdd} className="cursor-pointer">
-            Add
-          </Button>
+
+          <DialogClose asChild>
+            <Button onClick={handleAdd} className="cursor-pointer">
+              Add
+            </Button>
+          </DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>

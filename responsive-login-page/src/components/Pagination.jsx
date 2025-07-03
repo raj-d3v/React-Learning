@@ -1,3 +1,6 @@
+import { Button } from "./ui/button";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+
 function Pagination({ currentPage, totalPages, onPageChange }) {
   const pageNumbers = [];
 
@@ -6,34 +9,46 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
   }
 
   return (
-    <div className="flex justify-center mt-6 space-x-2">
-      <button
-        onClick={() => onPageChange(currentPage - 1)}
-        disabled={currentPage === 1}
-        className="px-3 py-1 rounded bg-gray-200 disabled:opacity-50"
-      >
-        Prev
-      </button>
-
-      {pageNumbers.map((number) => (
-        <button
-          key={number}
-          onClick={() => onPageChange(number)}
-          className={`px-3 py-1 rounded ${
-            number === currentPage ? "bg-blue-500 text-white" : "bg-gray-200"
-          }`}
+    <div className="flex justify-between items-center mt-6">
+      <div>
+        <Button
+          variant="outline"
+          onClick={() => onPageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+          className="cursor-pointer"
         >
-          {number}
-        </button>
-      ))}
+          <ArrowLeft />
+          Previous
+        </Button>
+      </div>
 
-      <button
-        onClick={() => onPageChange(currentPage + 1)}
-        disabled={currentPage === totalPages}
-        className="px-3 py-1 rounded bg-gray-200 disabled:opacity-50"
-      >
-        Next
-      </button>
+      <div className="flex justify-center space-x-2">
+        {pageNumbers.map((number) => (
+          <button
+            key={number}
+            onClick={() => onPageChange(number)}
+            className={`px-3 py-1 rounded ${
+              number === currentPage
+                ? "bg-[#EFF1F4] text-[#091E42]"
+                : "bg-white"
+            }`}
+          >
+            {number}
+          </button>
+        ))}
+      </div>
+
+      <div>
+        <Button
+          onClick={() => onPageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          variant="outline"
+          className="cursor-pointer"
+        >
+          Next
+          <ArrowRight />
+        </Button>
+      </div>
     </div>
   );
 }
