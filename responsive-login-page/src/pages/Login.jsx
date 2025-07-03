@@ -24,11 +24,11 @@ const Login = () => {
       </div>
 
       {/* Right Side – Image Section */}
-      <div className="sm:w-full lg:w-[500px] lg:ml-[20px] flex justify-center items-center mt-6 lg:mt-0">
+      <div className="sm:w-full lg:w-[700px] lg:ml-[20px] flex justify-center items-center mt-6 lg:mt-0">
         <img
           src={mainBanner}
           alt="main-banner"
-          className="w-[90%] max-w-[500px] h-[300px] sm:h-[400px] md:h-[500px] lg:h-auto object-cover rounded-xl shadow-lg"
+          className="w-[90%] max-w-[500px] h-[300px] sm:h-[400px] md:h-[500px] lg:min-w-5/5 lg:h-[650px] object-cover rounded-xl shadow-lg"
         />
       </div>
     </div>

@@ -1,23 +1,42 @@
 import google from "../assets/svg/google.svg";
 import facebook from "../assets/svg/facebook.svg";
+import Input from "./Input";
+import SocialButton from "./SocialButton";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../features/auth/authSlice";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(loginUser({ email, password }));
+    navigate("/dashboard");
+  };
+
   return (
     <>
-      <form className="mt-5 flex flex-col">
-        <label className="mb-1 text-[14px]">Email</label>
-        <input
-          className="border border-[#D4D7E3] rounded-[12px] mb-5 p-2 placeholder-[#8897AD] bg-[#f7fbff]"
-          type="email"
+      <form onSubmit={handleSubmit} className="mt-5 flex flex-col">
+        <Input
+          label="Email"
           name="email"
+          type="email"
           placeholder="Example@email.com"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
         />
-        <label className="mb-1 text-[14px]">Password</label>
-        <input
-          className="border border-[#D4D7E3] rounded-[12px]  p-2 placeholder-[#8897AD] bg-[#f7fbff]"
-          type="password"
+        <Input
+          label="Password"
           name="password"
-          placeholder="At least 8 characters"
+          type="password"
+          placeholder="Enter a password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
         />
         <a
           href="#"
@@ -30,22 +49,17 @@ function LoginForm() {
           Sign in
         </button>
 
-        <div class="flex items-center justify-center my-5">
-          <div class="flex-grow border-t border-[#CFDFE2]"></div>
-          <span class="mx-4 font-medium text-[#294957] ">Or</span>
-          <div class="flex-grow border-t border-[#CFDFE2] "></div>
+        <div className="flex items-center justify-center my-5">
+          <div className="flex-grow border-t border-[#CFDFE2]"></div>
+          <span className="mx-4 font-medium text-[#294957] ">Or</span>
+          <div className="flex-grow border-t border-[#CFDFE2] "></div>
         </div>
-        <div className="flex flex-col">
-          <button className="flex justify-center gap-2 p-4 mb-4 rounded-[12px] text-[#313957] bg-[#F3F9FA] cursor-pointer">
-            <img className="w-5 h-5" src={google} alt="google" />
-            Sign in with Google
-          </button>
-          <button className="flex justify-center gap-2 p-4 mb-5 rounded-[12px] text-[#313957] bg-[#F3F9FA] cursor-pointer">
-            <img className="w-5 h-5" src={facebook} alt="google" />
-            Sign in with Facebook
-          </button>
 
-          <p className="flex gap-2 justify-center m-5">
+        <div className="flex flex-col">
+          <SocialButton icon={google} text="Sign in with Google" />
+          <SocialButton icon={facebook} text="Sign in with Facebook" />
+
+          <p className="flex gap-2 justify-center mt-2 mb-0">
             Don't you have an account?
             <a href="#" className="text-[#1E4AE9] cursor-pointer">
               Sign up
