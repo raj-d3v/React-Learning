@@ -1,0 +1,13 @@
+✅ A Promise is like saying: “I don’t have the data yet, but I promise I will give it to you soon.”
+✅ A Promise is an object that represents a future result of an asynchronous operation.
+✅ Async functions always return a Promise.
+✅ Await pauses the function execution until the Promise settles (resolves or rejects).
+✅ Await only works inside async functions.
+✅ Await makes async code look and behave like synchronous code (easier to read).
+✅ .then() is a method to handle the result of a Promise once it's resolved.
+✅ .then() chains actions to run after a Promise resolves.
+✅ Without await or .then(), calling a Promise returns a "pending" state.
+✅ If you don’t await or use .then(), the rest of the code continues and skips the result.
+✅ Asynchronous functions don’t block other code, but inside them, await will pause next steps.
+✅ Use async/await when you want cleaner, linear-style code flow.
+✅ Use .then() when chaining or when not inside an async function.
